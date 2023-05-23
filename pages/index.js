@@ -107,8 +107,15 @@ export default function Home() {
             </Alert>
           </ModalBody>
           <ModalFooter>
+            <Text fontSize={"8"} textColor={"gray.600"}>
+              A &quot;Rendben&quot; gombra kattintással a weblap egy sütit
+              használ, hogy többé ne jelenjen meg az üzenet. Amennyiben nem
+              szeretnéd, hogy oldalunk sütiket használjon, használd a jobb felső
+              sarokban található X gombot.
+            </Text>
             <Button
-              colorScheme="yellow"
+              colorScheme="blue"
+              w={"50%"}
               onClick={() => {
                 closeModal();
               }}
@@ -175,7 +182,7 @@ export default function Home() {
             rounded={"lg"}
             justify={"flex-start"}
             direction={"column"}
-            background={"#F3F1A5"}
+            background={"#a2d2ff"}
             gap={2}
             p={2}
           >
@@ -234,7 +241,7 @@ export default function Home() {
             rounded={"lg"}
             justify={"flex-start"}
             direction={"column"}
-            background={"#F7F6C5"}
+            background={"#bde0fe"}
             gap={4}
             p={2}
           >
@@ -483,8 +490,11 @@ export default function Home() {
           mt={2}
           textAlign={"center"}
         >
-          Készítette: <b>Gőz Barnabás</b>, üzemelteti az{" "}
-          <b>Eötvös József Gimnázium Diákönkormányzata</b>
+          Készítette:{" "}
+          <Link href="mailto:it@barnagoz.ga">
+            <b>Gőz Barnabás</b>
+          </Link>
+          , üzemelteti az <b>Eötvös József Gimnázium Diákönkormányzata</b>
         </Text>
       </Flex>
     </>
