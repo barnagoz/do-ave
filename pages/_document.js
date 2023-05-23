@@ -37,6 +37,10 @@ export default function Document() {
           gtag('config', 'G-LNMCZZKZK6');
         `}
         </Script>
+        <meta
+          name="google-site-verification"
+          content="9XRqTMjh-hilRyRb9QthmGj8g3IOOhCEJ0wfUKD974w"
+        />
       </Head>
       <body>
         <Main />
