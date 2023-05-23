@@ -39,6 +39,32 @@ export default function Home() {
     position: "top-right",
   });
 
+  function getColor(type) {
+    if (type === 1) {
+      switch (selectedDay) {
+        case 0:
+          return "#a2d2ff";
+        case 1:
+          return "#ff9c91";
+        case 2:
+          return "#fffac9";
+        default:
+          return "#a2d2ff";
+      }
+    } else {
+      switch (selectedDay) {
+        case 0:
+          return "blue.600";
+        case 1:
+          return "red.600";
+        case 2:
+          return "yellow.600";
+        default:
+          return "blue.600";
+      }
+    }
+  }
+
   function closeModal() {
     setShowModal(false);
     localStorage.setItem("doNotShow", true);
@@ -115,7 +141,7 @@ export default function Home() {
               sarokban található X gombot.
             </Text>
             <Button
-              colorScheme="blue"
+              colorScheme={getColor(2).slice(0, -4)}
               w={"50%"}
               onClick={() => {
                 closeModal();
@@ -126,15 +152,7 @@ export default function Home() {
           </ModalFooter>
         </ModalContent>
       </Modal>
-      <Flex
-        w="100%"
-        minH="100vh"
-        backgroundImage={
-          "url(data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffa833' fill-opacity='0.4'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E)"
-        }
-        direction={"column"}
-        align={"center"}
-      >
+      <Flex w="100%" minH="100vh" direction={"column"} align={"center"}>
         <Flex w="100%" h={"15vh"} p={2} align={"center"} gap={5}>
           <Heading fontSize="25" marginLeft={4}>
             AVE Napok 2023
@@ -183,10 +201,10 @@ export default function Home() {
             rounded={"lg"}
             justify={"flex-start"}
             direction={"column"}
-            background={"#a2d2ff"}
+            background={getColor(1)}
             boxShadow={"lg"}
             border={"1px solid"}
-            borderColor={"blue.600"}
+            borderColor={getColor(2)}
             gap={2}
             p={2}
           >
@@ -269,10 +287,10 @@ export default function Home() {
             rounded={"lg"}
             justify={"flex-start"}
             direction={"column"}
-            background={"#bde0fe"}
+            background={getColor(1)}
             boxShadow={"lg"}
             border={"1px solid"}
-            borderColor={"blue.600"}
+            borderColor={getColor(2)}
             gap={4}
             p={2}
           >
