@@ -22,7 +22,9 @@ import {
   ModalCloseButton,
   ModalFooter,
   Avatar,
+  useToast,
   AlertDescription,
+  Center,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,10 +34,24 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   const [selectedDay, setSelectedDay] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const toast = useToast({
+    position: "top-right",
+  });
 
   function closeModal() {
     setShowModal(false);
     localStorage.setItem("doNotShow", true);
+  }
+
+  function changePage(page) {
+    setSelectedDay(page);
+    toast({
+      title: "Oldal megnyitva",
+      description: "Mobilon kérlek görless lejjebb, hogy láthasd a tartalmat!",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
   }
 
   useEffect(() => {
@@ -52,7 +68,7 @@ export default function Home() {
       <Modal
         isOpen={showModal}
         onClose={() => {
-          closeModal();
+          setShowModal(false);
         }}
       >
         <ModalOverlay />
@@ -71,6 +87,24 @@ export default function Home() {
               <br />
               Sok szeretettel várunk Titeket a 2023-as AVE-napokon!
             </Text>
+            <Alert
+              w="100%"
+              mt={1}
+              status="info"
+              variant="subtle"
+              rounded={"lg"}
+              size="sm"
+            >
+              <AlertIcon />
+              <AlertTitle mr={2}>
+                A részvételhez előzetes jelentkezés szükséges!
+              </AlertTitle>
+              <AlertDescription>
+                <Link href={"https://forms.gle/YXJMQB4t9FMTAyi67"}>
+                  <Button>Jelentkezem</Button>
+                </Link>
+              </AlertDescription>
+            </Alert>
           </ModalBody>
           <ModalFooter>
             <Button
@@ -98,48 +132,44 @@ export default function Home() {
             AVE Napok 2023
           </Heading>
           <Spacer />
-          <Image
-            src={"/api.hatternelkul.PNG"}
-            width={100}
-            height={100}
-            alt="Apáczai logó"
-          />
-          <Image
-            src={"/IMG_3779.PNG"}
-            width={100}
-            height={100}
-            alt="Veres Pálné logó"
-            style={{ marginLeft: "-10px" }}
-          />
-          <Image
-            src={"/ejg.fekete.hatternelkul.PNG"}
-            style={{ marginRight: 10 }}
-            width={100}
-            alt="Eötvös logó"
-            height={100}
-          />
+          <Flex
+            direction={"row"}
+            align={"center"}
+            gap={5}
+            display={{ base: "none", md: "flex" }}
+          >
+            <Image
+              src={"/api.hatternelkul.PNG"}
+              width={100}
+              height={100}
+              alt="Apáczai logó"
+            />
+            <Image
+              src={"/IMG_3779.PNG"}
+              width={100}
+              height={100}
+              alt="Veres Pálné logó"
+              style={{ marginLeft: "-10px" }}
+            />
+            <Image
+              src={"/ejg.fekete.hatternelkul.PNG"}
+              style={{ marginRight: 10 }}
+              width={100}
+              alt="Eötvös logó"
+              height={100}
+            />
+          </Flex>
         </Flex>
-        <Box w="95%" p={2}>
-          <Alert w="100%" status="info" variant="subtle" rounded={"lg"}>
-            <AlertIcon />
-            <AlertTitle mr={2}>
-              A részvételhez előzetes jelentkezés szükséges!
-            </AlertTitle>
-            <AlertDescription>
-              <Button>Jelentkezem</Button>
-            </AlertDescription>
-          </Alert>
-        </Box>
         <Flex
           w="95%"
           minH={"80vh"}
           rounded={"lg"}
-          direction={"row"}
+          direction={{ md: "row", base: "column" }}
           p={2}
-          gap={2}
+          gap={{ md: 2, base: 5 }}
         >
           <Flex
-            w={"30%"}
+            w={{ md: "30%", base: "100%" }}
             h={"100%"}
             minH={"calc(80vh - 4px)"}
             rounded={"lg"}
@@ -155,11 +185,7 @@ export default function Home() {
             <Text ml={2} mb={2} fontSize={"16"} textColor={"gray.600"}>
               Kattints a programnapokra, hogy megtudd, melyik iskolában mi lesz!
             </Text>
-            <Card
-              w={"100%"}
-              onClick={() => setSelectedDay(0)}
-              cursor={"pointer"}
-            >
+            <Card w={"100%"} onClick={() => changePage(0)} cursor={"pointer"}>
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
                   <Avatar src={"/IMG_3779.PNG"} size={"sm"} mr={2} />
@@ -170,11 +196,7 @@ export default function Home() {
                 <Text>Buzidítószöveg, hogy miért ide kattints először</Text>
               </CardBody>
             </Card>
-            <Card
-              w={"100%"}
-              onClick={() => setSelectedDay(1)}
-              cursor={"pointer"}
-            >
+            <Card w={"100%"} onClick={() => changePage(1)} cursor={"pointer"}>
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
                   <Avatar
@@ -189,11 +211,7 @@ export default function Home() {
                 <Text>Buzidítószöveg, hogy miért ide kattints először</Text>
               </CardBody>
             </Card>
-            <Card
-              w={"100%"}
-              onClick={() => setSelectedDay(2)}
-              cursor={"pointer"}
-            >
+            <Card w={"100%"} onClick={() => changePage(2)} cursor={"pointer"}>
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
                   <Avatar src={"/api.hatternelkul.PNG"} size={"sm"} mr={2} />
@@ -208,10 +226,10 @@ export default function Home() {
             </Card>
           </Flex>
           <Flex
-            w={"70%"}
-            h={"calc(80vh - 4px)"}
-            minH={"calc(80vh - 4px)"}
-            maxH={"calc(80vh - 4px)"}
+            w={{ md: "70%", base: "100%" }}
+            h={{ md: "calc(80vh - 4px)", base: "100%" }}
+            minH={{ md: "calc(80vh - 4px)", base: "100%" }}
+            maxH={{ md: "calc(80vh - 4px)", base: "100%" }}
             overflow={"scroll"}
             rounded={"lg"}
             justify={"flex-start"}
@@ -459,7 +477,12 @@ export default function Home() {
             )}
           </Flex>
         </Flex>
-        <Text fontSize={"12"} textColor={"gray.600"} mt={2}>
+        <Text
+          fontSize={"12"}
+          textColor={"gray.600"}
+          mt={2}
+          textAlign={"center"}
+        >
           Készítette: <b>Gőz Barnabás</b>, üzemelteti az{" "}
           <b>Eötvös József Gimnázium Diákönkormányzata</b>
         </Text>
