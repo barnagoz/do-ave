@@ -28,6 +28,7 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { AiFillInstagram } from "react-icons/ai";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -183,6 +184,9 @@ export default function Home() {
             justify={"flex-start"}
             direction={"column"}
             background={"#a2d2ff"}
+            boxShadow={"lg"}
+            border={"1px solid"}
+            borderColor={"blue.600"}
             gap={2}
             p={2}
           >
@@ -195,19 +199,30 @@ export default function Home() {
             <Card w={"100%"} onClick={() => changePage(0)} cursor={"pointer"}>
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
-                  <Avatar src={"/IMG_3779.PNG"} size={"sm"} mr={2} />
+                  <Avatar
+                    src={
+                      "https://5.kerulet.ittlakunk.hu/files/ittlakunk/styles/large/public/upload/company/1256/veres_palne_gimnazium4_fn.hir24.hu_.jpg"
+                    }
+                    size={"sm"}
+                    mr={2}
+                  />
                   <Heading fontSize={"20"}>Szerda (05.24.) - VPG</Heading>
                 </Flex>
               </CardHeader>
               <CardBody pt={0}>
-                <Text>Buzidítószöveg, hogy miért ide kattints először</Text>
+                <Text>
+                  Színes programok, új barátok és felejthetetlen emlékek várnak
+                  rád a VPG-ben!
+                </Text>
               </CardBody>
             </Card>
             <Card w={"100%"} onClick={() => changePage(1)} cursor={"pointer"}>
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
                   <Avatar
-                    src={"/ejg.fekete.hatternelkul.PNG"}
+                    src={
+                      "https://upload.wikimedia.org/wikipedia/commons/b/b0/EotvosGimFotoThalerTamas.jpg"
+                    }
                     size={"sm"}
                     mr={2}
                   />
@@ -215,41 +230,76 @@ export default function Home() {
                 </Flex>
               </CardHeader>
               <CardBody pt={0}>
-                <Text>Buzidítószöveg, hogy miért ide kattints először</Text>
+                <Text>
+                  Légy részese a lelkesedésnek, gyertek és szurkoljatok velünk!
+                  Ne felejtsétek, hogy a rendezvényünk tele van izgalmas
+                  programokkal, tehát próbáljátok ki mindegyiket és élvezzétek
+                  az összes pillanatot!
+                </Text>
               </CardBody>
             </Card>
             <Card w={"100%"} onClick={() => changePage(2)} cursor={"pointer"}>
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
-                  <Avatar src={"/api.hatternelkul.PNG"} size={"sm"} mr={2} />
+                  <Avatar
+                    src={
+                      "https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/241103073_345710427248679_2484661688189756930_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=lyAgZK6T-GUAX_FLDKQ&_nc_ht=scontent-vie1-1.xx&oh=00_AfCyX16rNPFaSDu0vl5TAAKuwmwxXRhwKMsDqycGLGAG7g&oe=64727F8B"
+                    }
+                    size={"sm"}
+                    mr={2}
+                  />
                   <Heading fontSize={"20"}>Péntek (05.26.) - Apáczai</Heading>
                 </Flex>
               </CardHeader>
               <CardBody pt={0}>
                 <Text>
-                  Buzidítószöveg, hogy miért ide kattints először: MERT EJG!
+                  Gyertek és fedezzétek fel, mennyire vagytok szerencsések a
+                  casino esten! Garantáltan izgalmas és szórakoztató lesz, ne
+                  hagyjátok ki!
                 </Text>
               </CardBody>
             </Card>
           </Flex>
           <Flex
             w={{ md: "70%", base: "100%" }}
-            h={{ md: "calc(80vh - 4px)", base: "100%" }}
-            minH={{ md: "calc(80vh - 4px)", base: "100%" }}
-            maxH={{ md: "calc(80vh - 4px)", base: "100%" }}
+            h={{ md: "calc(90vh + 4px)", base: "100%" }}
+            minH={{ md: "calc(90vh + 4px)", base: "100%" }}
+            maxH={{ md: "calc(90vh + 4px)", base: "100%" }}
             overflow={"scroll"}
             rounded={"lg"}
             justify={"flex-start"}
             direction={"column"}
             background={"#bde0fe"}
+            boxShadow={"lg"}
+            border={"1px solid"}
+            borderColor={"blue.600"}
             gap={4}
             p={2}
           >
             {selectedDay === 0 && (
               <>
-                <Heading mt={3} ml={2} fontSize={"24"}>
-                  Szerda (05.24.) - VPG
-                </Heading>
+                <Flex
+                  position={"sticky"}
+                  direction={"row"}
+                  align={"center"}
+                  mt={2}
+                  ml={2}
+                >
+                  <Avatar
+                    src={
+                      "https://5.kerulet.ittlakunk.hu/files/ittlakunk/styles/large/public/upload/company/1256/veres_palne_gimnazium4_fn.hir24.hu_.jpg"
+                    }
+                    size={"md"}
+                    mr={2}
+                  />
+                  <Heading fontSize={"24"}>Szerda (05.24.) - VPG</Heading>
+                  <Link href="https://www.instagram.com/vpgdok/">
+                    <AiFillInstagram
+                      fontSize={"24"}
+                      style={{ marginLeft: "8px" }}
+                    />
+                  </Link>
+                </Flex>
                 <Card rounded="lg" size="sm" w={"100%"}>
                   <CardHeader>
                     <Heading fontSize={"22"}>Kvízshow</Heading>
@@ -367,9 +417,28 @@ export default function Home() {
             )}
             {selectedDay === 1 && (
               <>
-                <Heading mt={3} ml={2} fontSize={"24"}>
-                  Csütörtök (05.25.) - Eötvös
-                </Heading>
+                <Flex
+                  position={"sticky"}
+                  direction={"row"}
+                  align={"center"}
+                  mt={2}
+                  ml={2}
+                >
+                  <Avatar
+                    src={
+                      "https://upload.wikimedia.org/wikipedia/commons/b/b0/EotvosGimFotoThalerTamas.jpg"
+                    }
+                    size={"md"}
+                    mr={2}
+                  />
+                  <Heading fontSize={"24"}>Csütörtök (05.25.) - Eötvös</Heading>
+                  <Link href="https://www.instagram.com/e5vosdo/">
+                    <AiFillInstagram
+                      fontSize={"24"}
+                      style={{ marginLeft: "8px" }}
+                    />
+                  </Link>
+                </Flex>
                 <Card rounded="lg" size="sm" w={"100%"}>
                   <CardHeader>
                     <Heading fontSize={"22"}>Streetball</Heading>
@@ -459,9 +528,28 @@ export default function Home() {
             )}
             {selectedDay === 2 && (
               <>
-                <Heading mt={3} ml={2} fontSize={"24"}>
-                  Péntek (05.26.) - Apáczai
-                </Heading>
+                <Flex
+                  position={"sticky"}
+                  direction={"row"}
+                  align={"center"}
+                  mt={2}
+                  ml={2}
+                >
+                  <Avatar
+                    src={
+                      "https://scontent-vie1-1.xx.fbcdn.net/v/t39.30808-6/241103073_345710427248679_2484661688189756930_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=lyAgZK6T-GUAX_FLDKQ&_nc_ht=scontent-vie1-1.xx&oh=00_AfCyX16rNPFaSDu0vl5TAAKuwmwxXRhwKMsDqycGLGAG7g&oe=64727F8B"
+                    }
+                    size={"md"}
+                    mr={2}
+                  />
+                  <Heading fontSize={"24"}>Péntek (05.26.) - Apáczai</Heading>
+                  <Link href="https://www.instagram.com/dok_apaczai/">
+                    <AiFillInstagram
+                      fontSize={"24"}
+                      style={{ marginLeft: "8px" }}
+                    />
+                  </Link>
+                </Flex>
                 <Card rounded="lg" size="sm" w={"100%"}>
                   <CardHeader>
                     <Heading fontSize={"22"}>Casino</Heading>
@@ -489,6 +577,7 @@ export default function Home() {
           textColor={"gray.600"}
           mt={2}
           textAlign={"center"}
+          mb={1}
         >
           Készítette:{" "}
           <Link href="mailto:it@barnagoz.ga">
