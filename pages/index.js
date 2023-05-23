@@ -26,7 +26,7 @@ export default function Home() {
       direction={"column"}
       align={"center"}
     >
-      <Flex w="100%" h={"15vh"} p={2} align={"center"}>
+      <Flex w="100%" h={"15vh"} p={2} align={"center"} gap={5}>
         <Heading fontSize="25" marginLeft={4}>
           AVE Napok 2023
         </Heading>
