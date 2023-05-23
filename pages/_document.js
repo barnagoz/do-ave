@@ -24,8 +24,6 @@ export default function Document() {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest"></link>
-      </Head>
-      <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-LNMCZZKZK6"
           strategy="afterInteractive"
@@ -39,6 +37,8 @@ export default function Document() {
           gtag('config', 'G-LNMCZZKZK6');
         `}
         </Script>
+      </Head>
+      <body>
         <Main />
         <NextScript />
       </body>
