@@ -43,24 +43,24 @@ export default function Home() {
     if (type === 1) {
       switch (selectedDay) {
         case 0:
-          return "#a2d2ff";
-        case 1:
-          return "#ff9c91";
-        case 2:
           return "#fffac9";
-        default:
+        case 1:
           return "#a2d2ff";
+        case 2:
+          return "#ff9c91";
+        default:
+          return "#fffac9";
       }
     } else {
       switch (selectedDay) {
         case 0:
-          return "blue.600";
-        case 1:
-          return "red.600";
-        case 2:
           return "yellow.600";
-        default:
+        case 1:
           return "blue.600";
+        case 2:
+          return "red.600";
+        default:
+          return "yellow.600";
       }
     }
   }
@@ -283,7 +283,7 @@ export default function Home() {
             h={{ md: "calc(90vh + 4px)", base: "100%" }}
             minH={{ md: "calc(90vh + 4px)", base: "100%" }}
             maxH={{ md: "calc(90vh + 4px)", base: "100%" }}
-            overflow={"scroll"}
+            overflowY={"scroll"}
             rounded={"lg"}
             justify={"flex-start"}
             direction={"column"}
