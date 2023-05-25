@@ -33,7 +33,7 @@ import { AiFillInstagram } from "react-icons/ai";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [selectedDay, setSelectedDay] = useState(0);
+  const [selectedDay, setSelectedDay] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const toast = useToast({
     position: "top-right",
@@ -214,7 +214,12 @@ export default function Home() {
             <Text ml={2} mb={2} fontSize={"16"} textColor={"gray.600"}>
               Kattints a programnapokra, hogy megtudd, melyik iskolában mi lesz!
             </Text>
-            <Card w={"100%"} onClick={() => changePage(0)} cursor={"pointer"}>
+            <Card
+              w={"100%"}
+              onClick={() => changePage(0)}
+              cursor={"disbled"}
+              opacity={0.3}
+            >
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
                   <Avatar
