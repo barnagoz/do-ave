@@ -33,7 +33,7 @@ import { AiFillInstagram } from "react-icons/ai";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [selectedDay, setSelectedDay] = useState(1);
+  const [selectedDay, setSelectedDay] = useState(2);
   const [showModal, setShowModal] = useState(false);
   const toast = useToast({
     position: "top-right",
@@ -239,7 +239,7 @@ export default function Home() {
                 </Text>
               </CardBody>
             </Card>
-            <Card w={"100%"} onClick={() => changePage(1)} cursor={"pointer"}>
+            <Card w={"100%"} opacity={0.3} onClick={() => changePage(1)} cursor={"disabled"} >
               <CardHeader>
                 <Flex direction={"row"} align={"center"}>
                   <Avatar
